@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Presencia :"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:hint="¿Nota?"
+        android:inputType="number"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="manicurado"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:hint="¿Nota?"
+        android:inputType="number"
+        android:textColor="@android:color/white" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="conservación"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:hint="¿Nota?"
+        android:inputType="number"
+        android:textColor="@android:color/white" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="madurez"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:hint="¿Nota?"
+        android:inputType="number"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="semillas"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:hint="¿Nota?"
+        android:inputType="number"
+        android:textColor="@android:color/white" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="forma"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <EditText
+
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:hint="¿Nota?"
+        android:inputType="number"
+        android:textColor="@android:color/white" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="plagas"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="160dp"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:text="calificar"
+        android:textColor="@android:color/white" />
+
+
+</LinearLayout>

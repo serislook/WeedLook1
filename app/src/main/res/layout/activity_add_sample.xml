@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skyweednet.weedlook.views.add.AddSampleActivity">
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/FragmentAddsample"
+        android:name="com.skyweednet.weedlook.views.main.AddSampleFragment"
+        tools:layout="@layout/fragment_add_sample"
+        />
+
+</FrameLayout>

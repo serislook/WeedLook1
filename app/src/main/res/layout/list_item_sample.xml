@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        app:siRadius="2dp"
+        app:siBorderWidth="2dp"
+        app:siBorderColor="@color/colorPrimary"
+        app:siSquare="false"/>
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:gravity="center_vertical"
+        android:text="Name Sample"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:layout_below="@id/nameTv"
+        android:id="@+id/categoryTv"
+        android:gravity="center_vertical"
+        android:text="Category Sample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        />
+
+    <TextView
+        android:layout_below="@id/categoryTv"
+        android:id="@+id/floweringTv"
+        android:gravity="center_vertical"
+        android:text="Flowering Sample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/floweringTv"
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_marginRight="8dp"
+            android:padding="4dp"
+            android:id="@+id/deletesample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/delete"
+            android:gravity="center"
+            android:text="Eliminar"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:padding="4dp"
+            android:id="@+id/editsample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/edit"
+            android:gravity="center"
+            android:text="Editar"
+            android:textColor="@color/white" />
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:padding="4dp"
+            android:id="@+id/tastesample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Catar"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:padding="4dp"
+            android:id="@+id/sharesample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="Compartir"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <View
+
+        android:layout_below="@id/linear"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+</RelativeLayout>

@@ -9,11 +9,11 @@
 
     <com.github.siyamed.shapeimageview.CircularImageView
         android:id="@+id/avatarCi"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="54dp"
-        android:src="@mipmap/logo_sommelier"
+        android:src="@mipmap/cata_1_01_24dp"
         app:siBorderColor="@android:color/white"
         app:siBorderWidth="6dp" />
 
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+           <!-- <Button
                 android:background="@color/colorAccent"
                 android:id="@+id/marketBtn"
                 android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                 android:paddingRight="16dp"
                 android:paddingTop="8dp"
                 android:text="WeedLocked"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white"/>-->
 
             <Button
                 android:background="@color/colorAccent"
@@ -114,7 +114,7 @@
                 android:text="Mis Catas"
                 android:textColor="@android:color/white"/>
 
-            <Button
+            <!--<Button
                 android:background="@color/colorAccent"
                 android:id="@+id/studiesBtn"
                 android:layout_width="match_parent"
@@ -124,7 +124,7 @@
                 android:paddingRight="16dp"
                 android:paddingTop="8dp"
                 android:text="Investigación"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white"/>-->
 
         </LinearLayout>
 

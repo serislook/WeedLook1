@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                                         new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build(),
                                         new AuthUI.IdpConfig.Builder(AuthUI.TWITTER_PROVIDER).build()*/))
                         .setTheme(R.style.LoginTheme)
-                        .setLogo(R.mipmap.logo_sommelier)
+                        .setLogo(R.mipmap.logo_01_sin_fondo_01)
 
                         .build(),
                 RC_SIGN_IN);

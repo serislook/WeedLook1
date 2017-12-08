@@ -1,38 +1,61 @@
 package com.skyweednet.weedlook.adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.github.siyamed.shapeimageview.RoundedImageView;
 import com.skyweednet.weedlook.R;
-import com.skyweednet.weedlook.data.Queries;
-import com.skyweednet.weedlook.models.Samples;
-
-import java.util.List;
+import com.skyweednet.weedlook.data.Nodes;
+import com.skyweednet.weedlook.models.Sample;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by osx on 06-10-17.
  */
 
-public class SamplesAdapter extends RecyclerView.Adapter<SamplesAdapter.ViewHolder>{
+public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample,SamplesAdapter.SampleHolder> {
 
-    private List<Samples> samples = new Queries().samples();
+    private SamplesListener listener;
+    private boolean first = true;
 
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_samples, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+    public SamplesAdapter(SamplesListener listener, String email) {
+        super(Sample.class, R.layout.list_item_sample, SampleHolder.class, new Nodes().samplebyemail(email));
+        this.listener = listener;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    protected void populateViewHolder(final SampleHolder viewHolder, Sample model, int position) {
+
+        viewHolder.name.setText(model.getName());
+        viewHolder.category.setText(model.getCategory());
+        viewHolder.flowering_time.setText(model.getFlowering_time());
+
+        if (!model.getImage().isEmpty()){
+
+            Picasso.with(viewHolder.itemView.getContext()).load(model.getImage()).into(viewHolder.imageView);
+        }
 
 
+
+
+        viewHolder.deletesample.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sample auxSample = getItem(viewHolder.getAdapterPosition());
+                listener.clicked(auxSample);
+            }
+        });
+
+        viewHolder.editsample.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sample auxSample = getItem(viewHolder.getAdapterPosition());
+                listener.clickededit(auxSample);
+            }
+        });
 
 
 
@@ -41,23 +64,32 @@ public class SamplesAdapter extends RecyclerView.Adapter<SamplesAdapter.ViewHold
     }
 
     @Override
-    public int getItemCount() {
-        return samples.size();
-    }
+    protected void onDataChanged() {
+        super.onDataChanged();
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView textView1;
-        private TextView textView2;
-        private CheckBox checkBox;
-
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-
-            textView1 = (TextView) itemView.findViewById(R.id.numberTv);
-            textView2 = (TextView) itemView.findViewById(R.id.categoryTv);
-            checkBox = (CheckBox) itemView.findViewById(R.id.samplesCb);
+        if (first){
+            first = false;
+            listener.dataChanged();
+        }else{
+            listener.add();
         }
     }
+
+    public static class SampleHolder extends RecyclerView.ViewHolder {
+
+        private TextView name,category,flowering_time,deletesample,editsample;
+        private RoundedImageView imageView;
+
+        public SampleHolder(View itemView) {
+            super(itemView);
+
+            name = (TextView) itemView.findViewById(R.id.nameTv);
+            category = (TextView) itemView.findViewById(R.id.categoryTv);
+            flowering_time = (TextView) itemView.findViewById(R.id.floweringTv);
+            deletesample = (TextView) itemView.findViewById(R.id.deletesample);
+            editsample = (TextView) itemView.findViewById(R.id.editsample);
+            imageView = (RoundedImageView) itemView.findViewById(R.id.imageView);
+        }
+    }
+
 }

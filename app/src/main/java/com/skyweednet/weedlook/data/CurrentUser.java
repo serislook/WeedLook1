@@ -16,7 +16,13 @@ public class CurrentUser {
     }
 
     public String email() {
-        return getCurrentUser().getEmail();
+        return getCurrentUser().getEmail();}
 
+    public String uid() {
+        return currentUser.getUid();
     }
+
+
+
 }
+

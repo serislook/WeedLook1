@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    android:background="@color/colorPrimaryDark"
+    >
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imagesample"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icons8_add_image_80"
+        app:siRadius="1dp"
+        app:siBorderWidth="1dp"
+        app:siBorderColor="@color/colorPrimary"
+        app:siSquare="false"/>
+
+    <EditText
+        android:inputType="text"
+        android:layout_marginTop="8dp"
+        android:id="@+id/nameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imagesample"
+        android:gravity="center_vertical"
+        android:hint=" Ingrese nombre"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/gray" />
+
+    <EditText
+        android:inputType="text"
+        android:layout_below="@id/nameEt"
+        android:id="@+id/categoryEt"
+        android:gravity="center_vertical"
+        android:hint=" Ingrese categoria"
+        android:textColorHint="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        />
+
+    <EditText
+        android:inputType="number"
+        android:maxLength="4"
+        android:layout_below="@id/categoryEt"
+        android:id="@+id/floweringEt"
+        android:gravity="center_vertical"
+        android:hint=" Ingrese tiempo de floracion"
+        android:textColorHint="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        />
+
+
+
+    <TextView
+        android:padding="4dp"
+        android:id="@+id/savesample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/floweringEt"
+        android:layout_below="@id/floweringEt"
+        android:background="@color/add"
+        android:gravity="right|center_vertical"
+        android:text=" Guardar"
+        android:textColor="@color/white" />
+
+
+    <View
+
+        android:layout_below="@id/savesample"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+
+
+</RelativeLayout>

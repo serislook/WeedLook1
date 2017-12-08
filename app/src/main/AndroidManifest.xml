@@ -2,9 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.skyweednet.weedlook">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_blur_on_white_48dp"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -12,7 +17,7 @@
         <activity
             android:name=".views.login.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name"
+            android:label="WeedLook"
             android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +28,18 @@
         <activity
             android:name=".views.main.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_main"
+            android:label="Mis Muestras"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".views.add.AddSampleActivity"
+            android:label="Registrar Muestra"></activity>
+        <activity
+            android:name=".views.main.EditSamplesActivity"
+            android:label="Editar Muestra"></activity>
+        <activity
+            android:name=".views.tastings.Tastings"
+            android:label="@string/title_activity_samples_tastings"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

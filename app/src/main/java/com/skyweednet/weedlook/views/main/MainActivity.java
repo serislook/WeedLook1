@@ -1,6 +1,6 @@
 package com.skyweednet.weedlook.views.main;
 
-import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.GravityCompat;
@@ -9,10 +9,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.skyweednet.weedlook.R;
+import com.skyweednet.weedlook.data.CurrentUser;
+import com.skyweednet.weedlook.data.EmailProcessor;
+import com.skyweednet.weedlook.data.Nodes;
+import com.skyweednet.weedlook.models.Users;
+import com.skyweednet.weedlook.views.add.AddSampleActivity;
+import com.skyweednet.weedlook.views.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,17 +27,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        validasesion();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Dialog dialog = new Dialog(MainActivity.this);
+                /*Dialog dialog = new Dialog(MainActivity.this);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog_sample);
 
                 dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-                dialog.show();
+                dialog.show();*/
+
+                //String[] samplesTypes = getResources().getStringArray(R.array.samples);
+                startActivity(new Intent(MainActivity.this, AddSampleActivity.class));
             }
         });
 
@@ -43,6 +52,25 @@ public class MainActivity extends AppCompatActivity {
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+    }
+    private void validasesion(){
+        final CurrentUser currentUser = new CurrentUser();
+
+        if(currentUser.getCurrentUser() != null){
+
+            Users user = new Users();
+            user.setEmail(currentUser.email());
+            user.setName(currentUser.getCurrentUser().getDisplayName());
+            user.setUid(currentUser.uid());
+            String key = new EmailProcessor().sanitizedEmail(currentUser.email());
+            new Nodes().user(key).setValue(user);
+
+        }else{
+
+           startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+
+        }
     }
 
     @Override

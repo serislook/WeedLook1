@@ -1,41 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.skyweednet.weedlook.views.main.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    android:fillViewport="true">
 
-
-    <TextView
-        android:id="@+id/welcomeTv"
+    <fragment
+        android:id="@+id/SamplesListFragment"
+        android:name="com.skyweednet.weedlook.views.main.SamplesListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingBottom="8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        android:text="Bienvenido a WeedLook Company..."
-        android:textColor="@android:color/black"
-        android:textSize="20dp" />
+        tools:layout="@layout/fragment_samples_list" />
 
-    <TextView
-        android:textColor="@android:color/primary_text_light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:gravity="center"
-        android:paddingBottom="8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="160dp"
-        android:text="¡Ahora podras catar tus cepas de manera mas intuitiva, competir con tus amigos y saber quien es el weed sibarita del momento!..."
-        android:textSize="15dp" />
+</FrameLayout>
 
 
 
-</LinearLayout>
+
+

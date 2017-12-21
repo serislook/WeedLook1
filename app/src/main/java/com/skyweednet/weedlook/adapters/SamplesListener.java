@@ -9,7 +9,14 @@ import com.skyweednet.weedlook.models.Sample;
 public interface SamplesListener {
 
     void clicked(Sample sample);
+
     void clickededit(Sample sample);
+
     void dataChanged();
+
     void add();
+
+    void tasting(Sample sample);
+
+
 }

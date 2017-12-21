@@ -22,6 +22,7 @@ import com.skyweednet.weedlook.data.CurrentUser;
 import com.skyweednet.weedlook.data.EmailProcessor;
 import com.skyweednet.weedlook.data.Nodes;
 import com.skyweednet.weedlook.models.Sample;
+import com.skyweednet.weedlook.views.tastings.TastingsActivity;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -64,13 +65,10 @@ public class SamplesListFragment extends Fragment implements SamplesListener {
         recyclerView.setHasFixedSize(true);
 
         final CurrentUser currentUser = new CurrentUser();
-        String email = new EmailProcessor().sanitizedEmail(currentUser.email()+"/");
+        String email = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
 
-        adapter = new SamplesAdapter(this,email);
+        adapter = new SamplesAdapter(this, email);
         recyclerView.setAdapter(adapter);
-
-
-
 
 
     }
@@ -87,9 +85,9 @@ public class SamplesListFragment extends Fragment implements SamplesListener {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Toast.makeText(getApplicationContext(),sample.getCategory()+ " eliminado de tus muestras",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), sample.getCategory() + " eliminado de tus muestras", Toast.LENGTH_SHORT).show();
                         CurrentUser currentUser = new CurrentUser();
-                        String key = new EmailProcessor().sanitizedEmail(currentUser.email()+"/");
+                        String key = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
 
                         new Nodes().sample(key).child(sample.getKey()).removeValue();
                     }
@@ -125,10 +123,17 @@ public class SamplesListFragment extends Fragment implements SamplesListener {
 
     @Override
     public void add() {
-        recyclerView.scrollToPosition(adapter.getItemCount() -1);
+        recyclerView.scrollToPosition(adapter.getItemCount() - 1);
     }
 
+    @Override
+    public void tasting(Sample sample) {
 
+        Intent intent = new Intent(getActivity(), TastingsActivity.class);
+        intent.putExtra("SAMPLE_KEY", sample);  // pass your values and retrieve them in the other Activity using keyName
+        startActivity(intent);
+
+    }
 
 
 }

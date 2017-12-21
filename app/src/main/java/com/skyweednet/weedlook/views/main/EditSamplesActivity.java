@@ -32,14 +32,14 @@ import com.squareup.picasso.Picasso;
 
 public class EditSamplesActivity extends AppCompatActivity {
 
-    private TextView name,category,flowering_time,savesample;
+    private TextView name, category, flowering_time, savesample;
     private RoundedImageView imagesample;
     private String key;
 
     private MagicalPermissions magicalPermissions;
     private MagicalCamera magicalCamera;
-    private int PHOTO_SIZE=15;
-    private String path,pathurl = "";
+    private int PHOTO_SIZE = 15;
+    private String path, pathurl = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,6 @@ public class EditSamplesActivity extends AppCompatActivity {
         imagesample = (RoundedImageView) findViewById(R.id.imagesample);
 
 
-
         name.setText(sample.getName());
         category.setText(sample.getCategory());
         flowering_time.setText(sample.getFlowering_time());
@@ -64,14 +63,14 @@ public class EditSamplesActivity extends AppCompatActivity {
 
         Picasso.with(imagesample.getContext()).load(sample.getImage()).into(imagesample);
 
-        String[] permissions = new String[] {
+        String[] permissions = new String[]{
                 Manifest.permission.CAMERA,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         };
 
         magicalPermissions = new MagicalPermissions(this, permissions);
-        magicalCamera = new MagicalCamera(this,PHOTO_SIZE,magicalPermissions);
+        magicalCamera = new MagicalCamera(this, PHOTO_SIZE, magicalPermissions);
 
         imagesample.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,10 +90,9 @@ public class EditSamplesActivity extends AppCompatActivity {
                 String floweringTx = flowering_time.getText().toString().trim();
 
                 final CurrentUser currentUser = new CurrentUser();
-                String email = new EmailProcessor().sanitizedEmail(currentUser.email()+"/");
+                String email = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
 
-                if (!nameTx.isEmpty() && !categoryTx.isEmpty() && !floweringTx.isEmpty() && !pathurl.isEmpty()){
-
+                if (!nameTx.isEmpty() && !categoryTx.isEmpty() && !floweringTx.isEmpty() && !pathurl.isEmpty()) {
 
 
                     Sample sample = new Sample();
@@ -112,8 +110,7 @@ public class EditSamplesActivity extends AppCompatActivity {
                     Toast.makeText(EditSamplesActivity.this, "Muestra editada con éxito", Toast.LENGTH_SHORT).show();
 
 
-
-                }else{
+                } else {
                     Toast.makeText(EditSamplesActivity.this, "Por favor, complete todos los datos", Toast.LENGTH_SHORT).show();
 
 
@@ -121,14 +118,6 @@ public class EditSamplesActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
-
 
 
     }
@@ -148,12 +137,12 @@ public class EditSamplesActivity extends AppCompatActivity {
         magicalCamera.resultPhoto(requestCode, resultCode, data);
 
 
-        if (RESULT_OK == resultCode){
+        if (RESULT_OK == resultCode) {
 
             Bitmap photo = magicalCamera.getPhoto();
-            path = magicalCamera .savePhotoInMemoryDevice(photo,"samples","flash",MagicalCamera.JPEG,true);
+            path = magicalCamera.savePhotoInMemoryDevice(photo, "samples", "flash", MagicalCamera.JPEG, true);
 
-            path = "file://"+path;
+            path = "file://" + path;
             setPhoto(path);
             toFirebasePathSamples(path);
 
@@ -162,18 +151,18 @@ public class EditSamplesActivity extends AppCompatActivity {
 
     }
 
-    private void setPhoto(String url){
+    private void setPhoto(String url) {
         Picasso.with(this).load(url).centerCrop().fit().into(imagesample);
     }
 
-    public void toFirebasePathSamples(String path){
+    public void toFirebasePathSamples(String path) {
 
         final CurrentUser currentUser = new CurrentUser();
-        String folder = new EmailProcessor().sanitizedEmail(currentUser.email()+"/");
-        long epoch = System.currentTimeMillis()/1000;
-        String photoName = String.valueOf(epoch)+".jpg";
+        String folder = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
+        long epoch = System.currentTimeMillis() / 1000;
+        String photoName = String.valueOf(epoch) + ".jpg";
         String baseUrl = "gs://.weedlook1.com/samples/";
-        String refUrl = baseUrl+folder+photoName;
+        String refUrl = baseUrl + folder + photoName;
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(refUrl);
         storageReference.putFile(Uri.parse(path)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -182,7 +171,7 @@ public class EditSamplesActivity extends AppCompatActivity {
                 String[] fullUrl = taskSnapshot.getDownloadUrl().toString().split("&token");
                 String url = fullUrl[0];
                 pathurl = url;
-                Log.e("URL",url);
+                Log.e("URL", url);
 
 //                LocalUser user = new LocalUser();
 //                user.setEmail(currentUser.email());

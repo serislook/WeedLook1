@@ -34,17 +34,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                /*Dialog dialog = new Dialog(MainActivity.this);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.dialog_sample);
 
-                dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-                dialog.show();*/
 
                 //String[] samplesTypes = getResources().getStringArray(R.array.samples);
                 startActivity(new Intent(MainActivity.this, AddSampleActivity.class));
             }
         });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,10 +49,11 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
     }
-    private void validasesion(){
+
+    private void validasesion() {
         final CurrentUser currentUser = new CurrentUser();
 
-        if(currentUser.getCurrentUser() != null){
+        if (currentUser.getCurrentUser() != null) {
 
             Users user = new Users();
             user.setEmail(currentUser.email());
@@ -65,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
             String key = new EmailProcessor().sanitizedEmail(currentUser.email());
             new Nodes().user(key).setValue(user);
 
-        }else{
+        } else {
 
-           startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
 
         }

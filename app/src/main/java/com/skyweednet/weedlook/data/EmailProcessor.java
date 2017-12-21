@@ -9,10 +9,11 @@ import java.util.List;
  */
 
 public class EmailProcessor {
-    public String sanitizedEmail(String email){
+    public String sanitizedEmail(String email) {
         return email.replace("@", "AT").replace(".", "DOT");
     }
-    public String keyEmails(String otherEmail){
+
+    public String keyEmails(String otherEmail) {
 
         String currentEmail = new CurrentUser().email();
         List<String> emails = new ArrayList<>();
@@ -20,7 +21,7 @@ public class EmailProcessor {
         emails.add(sanitizedEmail(otherEmail));
         Collections.sort(emails);
 
-        return emails.get(0)+ " - " + emails.get(1);
+        return emails.get(0) + " - " + emails.get(1);
 
 
     }

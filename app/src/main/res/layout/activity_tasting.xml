@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/fieldContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/imageIv"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="16dp"
+            android:scaleType="centerCrop"
+            app:siBorderColor="@color/colorPrimary"
+            app:siBorderWidth="2dp"
+            app:siRadius="2dp"
+            app:siSquare="false" />
+
+
+        <TextView
+            android:id="@+id/presenceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:padding="8dp"
+            android:text="Presencia:"
+            android:textColor="@color/colorAccent"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/manicureTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="manicurado:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="manicure"
+            android:id="@+id/manicureEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/maturityTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="madurez:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="maturity"
+            android:id="@+id/maturityEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+
+        <TextView
+            android:id="@+id/curedTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="curado:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="cured"
+            android:id="@+id/curedEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/seedsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="semillas:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="seeds"
+            android:id="@+id/seedsEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/resinTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="resina:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="resin"
+            android:id="@+id/resinEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/pestsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="plagas:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="pests"
+            android:id="@+id/pestsEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimary" />
+
+
+        <TextView
+            android:id="@+id/fraganceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:padding="8dp"
+            android:text="Aroma:"
+            android:textColor="@color/colorAccent"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/exitnoteTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="notas de salida:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="exitnote"
+            android:id="@+id/exitnoteEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/heartnoteTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="notas de corazón:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="heartnote"
+            android:id="@+id/heartnoteEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:maxLength="4"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/backgroundnotesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="notas de fondo:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="backgroundnotes"
+            android:id="@+id/backgroundnotesEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:maxLength="4"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorPrimary" />
+
+
+        <TextView
+            android:id="@+id/flavorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:padding="8dp"
+            android:text="Sabor:"
+            android:textColor="@color/colorAccent"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/drytastingTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="seco:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="drytasting"
+            android:id="@+id/drytastingEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tastingincombustionTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="combustión:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="tastingincombustion"
+            android:id="@+id/tastingincombustionEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:maxLength="4"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/smokeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="humo:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="smoke"
+            android:id="@+id/smokeEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/persistenceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="persistencia:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="persistence"
+            android:id="@+id/persistenceEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/efectTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:padding="8dp"
+            android:text="Efecto:"
+            android:textColor="@color/colorAccent"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/thcTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="thc:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="thc"
+            android:id="@+id/thcEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/cbdTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="cbd:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="cbd"
+            android:id="@+id/cbdEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:maxLength="4"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/insideTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="inside:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="inside"
+            android:id="@+id/insideEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:maxLength="4"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/powerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:padding="8dp"
+            android:paddingRight="24dp"
+            android:text="potencia:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:tag="power"
+            android:id="@+id/powerEt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/black"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:id="@+id/calificationBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:padding="8dp"
+            android:layout_marginTop="24dp"
+            android:paddingTop="16dp"
+            android:text="Calificar" />
+
+
+    </LinearLayout>
+</ScrollView>

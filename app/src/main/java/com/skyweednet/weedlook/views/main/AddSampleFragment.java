@@ -37,14 +37,14 @@ import static android.app.Activity.RESULT_OK;
  */
 public class AddSampleFragment extends Fragment {
 
-    private EditText name,category,flowering_time;
+    private EditText name, category, flowering_time;
     private RoundedImageView imagesample;
     private TextView addsample;
-    private String path,pathurl = "";
+    private String path, pathurl = "";
 
     private MagicalPermissions magicalPermissions;
     private MagicalCamera magicalCamera;
-    private int PHOTO_SIZE=15;
+    private int PHOTO_SIZE = 15;
 
 
     public AddSampleFragment() {
@@ -63,14 +63,15 @@ public class AddSampleFragment extends Fragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String[] permissions = new String[] {
+        String[] permissions = new String[]{
                 Manifest.permission.CAMERA,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         };
 
+
         magicalPermissions = new MagicalPermissions(this, permissions);
-        magicalCamera = new MagicalCamera(getActivity(),PHOTO_SIZE,magicalPermissions);
+        magicalCamera = new MagicalCamera(getActivity(), PHOTO_SIZE, magicalPermissions);
 
         name = (EditText) view.findViewById(R.id.nameEt);
         category = (EditText) view.findViewById(R.id.categoryEt);
@@ -97,9 +98,9 @@ public class AddSampleFragment extends Fragment {
                 String floweringTx = flowering_time.getText().toString().trim();
 
                 final CurrentUser currentUser = new CurrentUser();
-                String email = new EmailProcessor().sanitizedEmail(currentUser.email()+"/");
+                String email = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
 
-                if (!nameTx.isEmpty() && !categoryTx.isEmpty() && !floweringTx.isEmpty() && !pathurl.isEmpty()){
+                if (!nameTx.isEmpty() && !categoryTx.isEmpty() && !floweringTx.isEmpty() && !pathurl.isEmpty()) {
 
                     String key = new Nodes().sample(email).push().getKey();
 
@@ -126,18 +127,19 @@ public class AddSampleFragment extends Fragment {
                     getActivity().finish();
 
 
-
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "Por favor, complete todos los datos", Toast.LENGTH_SHORT).show();
 
 
                 }
+
 
             }
         });
 
 
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -154,12 +156,12 @@ public class AddSampleFragment extends Fragment {
         magicalCamera.resultPhoto(requestCode, resultCode, data);
 
 
-        if (RESULT_OK == resultCode){
+        if (RESULT_OK == resultCode) {
 
             Bitmap photo = magicalCamera.getPhoto();
-            path = magicalCamera .savePhotoInMemoryDevice(photo,"samples","flash",MagicalCamera.JPEG,true);
+            path = magicalCamera.savePhotoInMemoryDevice(photo, "samples", "flash", MagicalCamera.JPEG, true);
 
-            path = "file://"+path;
+            path = "file://" + path;
             setPhoto(path);
             toFirebasePathSample(path);
 
@@ -168,18 +170,18 @@ public class AddSampleFragment extends Fragment {
 
     }
 
-    private void setPhoto(String url){
+    private void setPhoto(String url) {
         Picasso.with(getContext()).load(url).centerCrop().fit().into(imagesample);
     }
 
-    public void toFirebasePathSample(String path){
+    public void toFirebasePathSample(String path) {
 
         final CurrentUser currentUser = new CurrentUser();
-        String folder = new EmailProcessor().sanitizedEmail(currentUser.email()+"/");
-        long epoch = System.currentTimeMillis()/1000;
-        String photoName = String.valueOf(epoch)+".jpg";
+        String folder = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
+        long epoch = System.currentTimeMillis() / 1000;
+        String photoName = String.valueOf(epoch) + ".jpg";
         String baseUrl = "gs://weedlook1.appspot.com/samples";
-        String refUrl = baseUrl+folder+photoName;
+        String refUrl = baseUrl + folder + photoName;
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(refUrl);
         storageReference.putFile(Uri.parse(path)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -188,7 +190,7 @@ public class AddSampleFragment extends Fragment {
                 String[] fullUrl = taskSnapshot.getDownloadUrl().toString().split("&token");
                 String url = fullUrl[0];
                 pathurl = url;
-                Log.e("URL",url);
+                Log.e("URL", url);
 
 //                LocalUser user = new LocalUser();
 //                user.setEmail(currentUser.email());

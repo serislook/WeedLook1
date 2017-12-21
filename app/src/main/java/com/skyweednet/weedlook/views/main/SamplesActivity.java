@@ -20,6 +20,7 @@ public class SamplesActivity extends AppCompatActivity {
 
         TextView addsample = (TextView) findViewById(R.id.addsample);
 
+
         View layout = findViewById(R.id.FragmentAddsample);
         layout.setVisibility(View.GONE);
 
@@ -27,15 +28,17 @@ public class SamplesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 View layout = findViewById(R.id.FragmentAddsample);
-                if (layout.getVisibility() == View.VISIBLE){
+                if (layout.getVisibility() == View.VISIBLE) {
 
                     layout.setVisibility(View.GONE);
 
-                }else{
+                } else {
                     layout.setVisibility(View.VISIBLE);
                 }
             }
         });
+
+
 
     }
 }

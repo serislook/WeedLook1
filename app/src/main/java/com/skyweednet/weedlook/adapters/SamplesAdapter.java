@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
  * Created by osx on 06-10-17.
  */
 
-public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample,SamplesAdapter.SampleHolder> {
+public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapter.SampleHolder> {
 
     private SamplesListener listener;
     private boolean first = true;
@@ -33,12 +33,10 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample,SamplesAdapte
         viewHolder.category.setText(model.getCategory());
         viewHolder.flowering_time.setText(model.getFlowering_time());
 
-        if (!model.getImage().isEmpty()){
+        if (!model.getImage().isEmpty()) {
 
             Picasso.with(viewHolder.itemView.getContext()).load(model.getImage()).into(viewHolder.imageView);
         }
-
-
 
 
         viewHolder.deletesample.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +54,17 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample,SamplesAdapte
                 listener.clickededit(auxSample);
             }
         });
+        viewHolder.tasting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sample auxSample = getItem(viewHolder.getAdapterPosition());
+                listener.tasting(auxSample);
+
+            }
+        });
+
+
+
 
 
 
@@ -67,17 +76,17 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample,SamplesAdapte
     protected void onDataChanged() {
         super.onDataChanged();
 
-        if (first){
+        if (first) {
             first = false;
             listener.dataChanged();
-        }else{
+        } else {
             listener.add();
         }
     }
 
     public static class SampleHolder extends RecyclerView.ViewHolder {
 
-        private TextView name,category,flowering_time,deletesample,editsample;
+        private TextView name, category, flowering_time, deletesample, editsample,tasting;
         private RoundedImageView imageView;
 
         public SampleHolder(View itemView) {
@@ -89,6 +98,8 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample,SamplesAdapte
             deletesample = (TextView) itemView.findViewById(R.id.deletesample);
             editsample = (TextView) itemView.findViewById(R.id.editsample);
             imageView = (RoundedImageView) itemView.findViewById(R.id.imageView);
+            tasting= (TextView) itemView.findViewById(R.id.tastesample);
+
         }
     }
 

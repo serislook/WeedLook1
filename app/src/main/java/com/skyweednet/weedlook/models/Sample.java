@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class Sample implements Serializable {
 
-    private String image,key,name,category,flowering_time;
+    private String image, key, name, category, flowering_time;
 
     public Sample() {
     }

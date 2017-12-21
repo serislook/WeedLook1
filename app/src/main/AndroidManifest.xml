@@ -37,7 +37,7 @@
             android:name=".views.main.EditSamplesActivity"
             android:label="Editar Muestra"></activity>
         <activity
-            android:name=".views.tastings.Tastings"
+            android:name=".views.tastings.TastingsActivity"
             android:label="@string/title_activity_samples_tastings"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

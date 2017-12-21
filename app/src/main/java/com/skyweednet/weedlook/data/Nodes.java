@@ -15,14 +15,19 @@ public class Nodes {
         return root.child("users");
     }
 
-    public DatabaseReference user(String key){
+    public DatabaseReference user(String key) {
         return users().child(key);
     }
-    public DatabaseReference samples(){ return root.child("samples"); }
 
-    public DatabaseReference sample(String key){
+    public DatabaseReference samples() {
+        return root.child("samples");
+    }
+
+    public DatabaseReference sample(String key) {
         return samples().child(key);
     }
 
-    public DatabaseReference samplebyemail(String email){ return samples().child(email); }
+    public DatabaseReference samplebyemail(String email) {
+        return samples().child(email);
+    }
 }

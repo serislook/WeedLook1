@@ -18,5 +18,8 @@ public interface SamplesListener {
 
     void tasting(Sample sample);
 
+    void shared (Sample sample);
+
+
 
 }

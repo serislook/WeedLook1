@@ -62,6 +62,14 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
 
             }
         });
+        viewHolder.shared.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sample auxSample = getItem(viewHolder.getAdapterPosition());
+                listener.shared(auxSample);
+
+            }
+        });
 
 
 
@@ -86,7 +94,7 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
 
     public static class SampleHolder extends RecyclerView.ViewHolder {
 
-        private TextView name, category, flowering_time, deletesample, editsample,tasting;
+        private TextView name, category, flowering_time, deletesample, editsample,tasting,shared;
         private RoundedImageView imageView;
 
         public SampleHolder(View itemView) {
@@ -98,7 +106,8 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
             deletesample = (TextView) itemView.findViewById(R.id.deletesample);
             editsample = (TextView) itemView.findViewById(R.id.editsample);
             imageView = (RoundedImageView) itemView.findViewById(R.id.imageView);
-            tasting= (TextView) itemView.findViewById(R.id.tastesample);
+            tasting = (TextView) itemView.findViewById(R.id.tastesample);
+            shared = (TextView) itemView.findViewById(R.id.sharesample);
 
         }
     }

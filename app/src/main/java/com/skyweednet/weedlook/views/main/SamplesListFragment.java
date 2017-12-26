@@ -6,7 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +24,7 @@ import com.skyweednet.weedlook.data.CurrentUser;
 import com.skyweednet.weedlook.data.EmailProcessor;
 import com.skyweednet.weedlook.data.Nodes;
 import com.skyweednet.weedlook.models.Sample;
+import com.skyweednet.weedlook.views.finder.FinderDialogFragment;
 import com.skyweednet.weedlook.views.tastings.TastingsActivity;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -32,6 +35,9 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class SamplesListFragment extends Fragment implements SamplesListener {
 
     public static final String SAMPLE = "com.skyweednet.weedlook.views.main.KEY.SAMPLE";
+    public static FinderDialogFragment newInstance() {
+        return new FinderDialogFragment();
+    }
 
 
     private ProgressDialog progressDialog;
@@ -132,6 +138,23 @@ public class SamplesListFragment extends Fragment implements SamplesListener {
         Intent intent = new Intent(getActivity(), TastingsActivity.class);
         intent.putExtra("SAMPLE_KEY", sample);  // pass your values and retrieve them in the other Activity using keyName
         startActivity(intent);
+
+    }
+
+    @Override
+    public void shared(Sample sample) {
+
+
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        Fragment prev = getActivity().getSupportFragmentManager().findFragmentByTag("finder");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        DialogFragment dialogFragment = FinderDialogFragment.newInstance(sample);
+        dialogFragment.show(ft, "finder");
+
 
     }
 

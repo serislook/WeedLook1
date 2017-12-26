@@ -98,6 +98,7 @@ public class AddSampleFragment extends Fragment {
                 String floweringTx = flowering_time.getText().toString().trim();
 
                 final CurrentUser currentUser = new CurrentUser();
+                //TODO porqué más diagonal
                 String email = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
 
                 if (!nameTx.isEmpty() && !categoryTx.isEmpty() && !floweringTx.isEmpty() && !pathurl.isEmpty()) {
@@ -110,6 +111,7 @@ public class AddSampleFragment extends Fragment {
                     sample.setFlowering_time(floweringTx);
                     sample.setImage(pathurl);
                     sample.setKey(key);
+                    sample.setOwner(email);
 
 
                     new Nodes().sample(email).child(key).setValue(sample);

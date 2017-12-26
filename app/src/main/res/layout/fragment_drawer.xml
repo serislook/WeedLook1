@@ -75,7 +75,7 @@
                 android:text="WeedLocked"
                 android:textColor="@android:color/white"/>-->
 
-            <Button
+           <!-- <Button
                 android:background="@color/colorAccent"
                 android:id="@+id/recordBtn"
                 android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                 android:paddingRight="16dp"
                 android:paddingTop="8dp"
                 android:text="Copas"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white"/>-->
 
             <Button
                 android:background="@color/colorAccent"
@@ -114,7 +114,7 @@
                 android:text="Mis Catas"
                 android:textColor="@android:color/white"/>
 
-            <!--<Button
+            <Button
                 android:background="@color/colorAccent"
                 android:id="@+id/studiesBtn"
                 android:layout_width="match_parent"
@@ -123,8 +123,8 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingTop="8dp"
-                android:text="Investigación"
-                android:textColor="@android:color/white"/>-->
+                android:text="MUESTRAS COMPARTIDAS"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
 

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class Sample implements Serializable {
 
-    private String image, key, name, category, flowering_time;
+    private String image, key, name, category, flowering_time, owner;
 
     public Sample() {
     }
@@ -51,5 +51,13 @@ public class Sample implements Serializable {
 
     public void setFlowering_time(String flowering_time) {
         this.flowering_time = flowering_time;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }

@@ -30,4 +30,15 @@ public class Nodes {
     public DatabaseReference samplebyemail(String email) {
         return samples().child(email);
     }
+    public DatabaseReference tastings() {
+        return root.child("tastings");
+    }
+
+    public DatabaseReference tasting(String key) {
+        return tastings().child(key);
+    }
+
+
+
+
 }

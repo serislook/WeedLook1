@@ -26,4 +26,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
     </style>
+    <style name="AccentButton" parent="AppTheme">
+        <item name="android:colorButtonNormal">@color/colorAccent</item>
+    </style>
 </resources>

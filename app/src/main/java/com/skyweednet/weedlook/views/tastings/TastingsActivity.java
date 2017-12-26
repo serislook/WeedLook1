@@ -117,7 +117,7 @@ public class TastingsActivity extends AppCompatActivity {
                         editTexts.add(editText);
                     }
                 }
-                new UploadSample().byViews(editTexts);
+                new UploadSample().byViews(editTexts, sample);
 
             }
         });

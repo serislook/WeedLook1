@@ -3,6 +3,9 @@ package com.skyweednet.weedlook.views.tastings;
 import android.util.Log;
 import android.widget.EditText;
 
+import com.skyweednet.weedlook.data.EmailProcessor;
+import com.skyweednet.weedlook.data.Nodes;
+import com.skyweednet.weedlook.models.Sample;
 import com.skyweednet.weedlook.models.Tasting;
 
 import java.util.HashMap;
@@ -15,7 +18,7 @@ import java.util.Map;
 
 public class UploadSample {
 
-    public void byViews(List<EditText> editTexts) {
+    public void byViews(List<EditText> editTexts, Sample sample) {
 
         Tasting tasting = new Tasting();
         Map<String, Double> characteristics = new HashMap<>();
@@ -39,6 +42,17 @@ public class UploadSample {
         Log.e("Promedio",String.valueOf(average));
         tasting.setAverage(average);
         tasting.setCharacteristics(characteristics);
+
+        String email = new EmailProcessor().sanitizedEmail(sample.getOwner());
+
+        String key = new Nodes().tasting(email).push().getKey();
+        tasting.setKey(key);
+        tasting.setSampleKey(sample.getKey());
+
+
+
+        new Nodes().tasting(email).child(sample.getKey()).child(key).setValue(tasting);
+
         //TODO add missing attributes to the model and send it to the database
 
     }

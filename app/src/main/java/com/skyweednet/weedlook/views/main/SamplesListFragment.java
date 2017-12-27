@@ -91,7 +91,7 @@ public class SamplesListFragment extends Fragment implements SamplesListener {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Toast.makeText(getApplicationContext(), sample.getCategory() + " eliminado de tus muestras", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), sample.getName() + " eliminado de tus muestras", Toast.LENGTH_SHORT).show();
                         CurrentUser currentUser = new CurrentUser();
                         String key = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
 

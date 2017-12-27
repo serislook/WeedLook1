@@ -70,7 +70,7 @@ public class FinderDialogFragment extends DialogFragment implements FinderCallba
                 loading.setVisibility(View.VISIBLE);
                 Sample sample = (Sample) getArguments().getSerializable("sample");
                 Toast.makeText(getContext(), sample.getName(), Toast.LENGTH_SHORT).show();
-                //new UserValidation(FinderDialogFragment.this, getContext()).init(email);
+                new UserValidation(FinderDialogFragment.this, getContext()).init(email);
             }
         });
 

@@ -31,7 +31,7 @@ public class TastingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tasting);
 
         final Sample sample = (Sample) getIntent().getSerializableExtra("SAMPLE_KEY");
-        Log.e("SAMPLE",sample.getName());
+        Log.e("SAMPLE", sample.getName());
 
         imageView = (RoundedImageView) findViewById(R.id.imageIv);
 

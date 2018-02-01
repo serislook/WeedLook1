@@ -23,18 +23,18 @@ import com.skyweednet.weedlook.models.Sample;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FinderDialogFragment extends DialogFragment implements FinderCallback {
+public class SampleDialogFragment extends DialogFragment implements FinderCallback {
 
     private EditText editText;
     private ImageButton imageButton;
     private SpinKitView loading;
 
-    public static FinderDialogFragment newInstance(Sample sample) {
-        FinderDialogFragment finderDialogFragment = new FinderDialogFragment();
+    public static SampleDialogFragment newInstance(Sample sample) {
+        SampleDialogFragment sampleDialogFragment = new SampleDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable("sample", sample);
-        finderDialogFragment.setArguments(bundle);
-        return finderDialogFragment;
+        sampleDialogFragment.setArguments(bundle);
+        return sampleDialogFragment;
     }
 
 
@@ -70,7 +70,7 @@ public class FinderDialogFragment extends DialogFragment implements FinderCallba
                 loading.setVisibility(View.VISIBLE);
                 Sample sample = (Sample) getArguments().getSerializable("sample");
                 Toast.makeText(getContext(), sample.getName(), Toast.LENGTH_SHORT).show();
-                new UserValidation(FinderDialogFragment.this, getContext()).init(email);
+                new UserValidation(SampleDialogFragment.this, getContext()).init(email, sample);
             }
         });
 

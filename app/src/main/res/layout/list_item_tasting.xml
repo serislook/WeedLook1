@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/sampleIv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        app:siRadius="1dp"
+        app:siBorderWidth="1dp"
+        app:siBorderColor="@color/colorPrimary"
+        app:siSquare="false"/>
+
+    <TextView
+        android:id="@+id/namesampleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sampleIv"
+        android:gravity="center_vertical"
+        android:text="Name Sample"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:layout_below="@id/namesampleTv"
+        android:id="@+id/averageTv"
+        android:gravity="center_vertical"
+        android:text="Average Sample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        />
+
+    <TextView
+        android:layout_below="@id/averageTv"
+        android:id="@+id/floweringtimeTv"
+        android:gravity="center_vertical"
+        android:text="Flowering Sample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/floweringtimeTv"
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_marginRight="8dp"
+            android:padding="4dp"
+            android:id="@+id/deletetastingTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/delete"
+            android:gravity="center"
+            android:text="Eliminar"
+            android:textColor="@color/white" />
+
+
+
+    </LinearLayout>
+
+    <View
+
+        android:layout_below="@id/linear"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+</RelativeLayout>

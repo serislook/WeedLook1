@@ -1,14 +1,15 @@
 package com.skyweednet.weedlook.models;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
  * Created by osx on 16-12-17.
  */
 
-public class Tasting {
+public class Tasting implements Serializable {
 
-    private String key, owner, name, sampleKey;
+    private String image,key, owner, name, flowering, sampleKey;
     private Map<String, Double> characteristics;
     private double average;
 
@@ -17,6 +18,13 @@ public class Tasting {
 
     public String getKey() {
         return key;
+    }
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setKey(String key) {
@@ -53,6 +61,13 @@ public class Tasting {
 
     public void setCharacteristics(Map<String, Double> characteristics) {
         this.characteristics = characteristics;
+    }
+    public String getFlowering() {
+        return flowering;
+    }
+
+    public void setFlowering(String flowering) {
+        this.flowering = flowering;
     }
 
     public double getAverage() {

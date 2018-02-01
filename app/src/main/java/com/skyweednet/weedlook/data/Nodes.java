@@ -30,6 +30,8 @@ public class Nodes {
     public DatabaseReference samplebyemail(String email) {
         return samples().child(email);
     }
+
+
     public DatabaseReference tastings() {
         return root.child("tastings");
     }
@@ -39,6 +41,20 @@ public class Nodes {
     }
 
 
+    public DatabaseReference tastingbyemail(String email) {
+        return tastings().child(email);
+    }
 
 
+    public DatabaseReference sharedSamples() {
+        return root.child("shared_samples");
+    }
+
+    public DatabaseReference tastingsResults(String sampleKey) {
+        return root.child("tastings_results").child(sampleKey);
+    }
+
+    public DatabaseReference samplebyemailbykey(String email, String key) {
+        return samplebyemail(email).child(key);
+    }
 }

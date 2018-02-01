@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -37,10 +38,11 @@ import static android.app.Activity.RESULT_OK;
  */
 public class AddSampleFragment extends Fragment {
 
-    private EditText name, category, flowering_time;
-    private RoundedImageView imagesample;
+    protected EditText name, category, flowering;
+    protected RoundedImageView imagesample;
     private TextView addsample;
-    private String path, pathurl = "";
+    protected String path, pathurl = "";
+    protected String key = null;
 
     private MagicalPermissions magicalPermissions;
     private MagicalCamera magicalCamera;
@@ -59,6 +61,7 @@ public class AddSampleFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_add_sample, container, false);
     }
 
+    @CallSuper
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -75,7 +78,7 @@ public class AddSampleFragment extends Fragment {
 
         name = (EditText) view.findViewById(R.id.nameEt);
         category = (EditText) view.findViewById(R.id.categoryEt);
-        flowering_time = (EditText) view.findViewById(R.id.floweringEt);
+        flowering = (EditText) view.findViewById(R.id.floweringEt);
         imagesample = (RoundedImageView) view.findViewById(R.id.imagesample);
 
         imagesample.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +98,7 @@ public class AddSampleFragment extends Fragment {
 
                 String nameTx = name.getText().toString().trim();
                 String categoryTx = category.getText().toString().trim();
-                String floweringTx = flowering_time.getText().toString().trim();
+                String floweringTx = flowering.getText().toString().trim();
 
                 final CurrentUser currentUser = new CurrentUser();
                 //TODO porqué más diagonal
@@ -103,12 +106,12 @@ public class AddSampleFragment extends Fragment {
 
                 if (!nameTx.isEmpty() && !categoryTx.isEmpty() && !floweringTx.isEmpty() && !pathurl.isEmpty()) {
 
-                    String key = new Nodes().sample(email).push().getKey();
+                    key = (key != null) ? key : new Nodes().sample(email).push().getKey();
 
                     Sample sample = new Sample();
                     sample.setName(nameTx);
                     sample.setCategory(categoryTx);
-                    sample.setFlowering_time(floweringTx);
+                    sample.setFlowering(floweringTx);
                     sample.setImage(pathurl);
                     sample.setKey(key);
                     sample.setOwner(email);
@@ -116,12 +119,12 @@ public class AddSampleFragment extends Fragment {
 
                     new Nodes().sample(email).child(key).setValue(sample);
 
-                    View layout = view.findViewById(R.id.FragmentAddsample);
+                    View layout = getView();
                     layout.setVisibility(View.GONE);
 
                     name.setText("");
                     category.setText("");
-                    flowering_time.setText("");
+                    flowering.setText("");
                     Picasso.with(getContext()).load(R.drawable.icons8_add_image_80).centerCrop().fit().into(imagesample);
 
                     Toast.makeText(getActivity(), "Muestra agregada con éxito", Toast.LENGTH_SHORT).show();

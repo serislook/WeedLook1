@@ -24,10 +24,11 @@ import com.skyweednet.weedlook.data.CurrentUser;
 import com.skyweednet.weedlook.data.EmailProcessor;
 import com.skyweednet.weedlook.data.Nodes;
 import com.skyweednet.weedlook.models.Sample;
-import com.skyweednet.weedlook.views.finder.FinderDialogFragment;
+import com.skyweednet.weedlook.views.finder.SampleDialogFragment;
 import com.skyweednet.weedlook.views.tastings.TastingsActivity;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
+//import static com.skyweednet.weedlook.views.mytastings.TastingsListFragment.SAMPLE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,8 +36,9 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class SamplesListFragment extends Fragment implements SamplesListener {
 
     public static final String SAMPLE = "com.skyweednet.weedlook.views.main.KEY.SAMPLE";
-    public static FinderDialogFragment newInstance() {
-        return new FinderDialogFragment();
+    public static final String TASTING = "com.skyweednet.weedlook.views.main.KEY.TASTING";
+    public static SampleDialogFragment newInstance() {
+        return new SampleDialogFragment();
     }
 
 
@@ -73,7 +75,7 @@ public class SamplesListFragment extends Fragment implements SamplesListener {
         final CurrentUser currentUser = new CurrentUser();
         String email = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
 
-        adapter = new SamplesAdapter(this, email);
+        adapter = new SamplesAdapter(this, new Nodes().samplebyemail(email));
         recyclerView.setAdapter(adapter);
 
 
@@ -152,7 +154,7 @@ public class SamplesListFragment extends Fragment implements SamplesListener {
         }
         ft.addToBackStack(null);
 
-        DialogFragment dialogFragment = FinderDialogFragment.newInstance(sample);
+        DialogFragment dialogFragment = SampleDialogFragment.newInstance(sample);
         dialogFragment.show(ft, "finder");
 
 

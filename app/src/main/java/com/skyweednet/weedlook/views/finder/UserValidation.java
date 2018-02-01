@@ -8,6 +8,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.skyweednet.weedlook.data.CurrentUser;
 import com.skyweednet.weedlook.data.EmailProcessor;
 import com.skyweednet.weedlook.data.Nodes;
+import com.skyweednet.weedlook.models.Sample;
 import com.skyweednet.weedlook.models.Users;
 
 /**
@@ -24,14 +25,13 @@ public class UserValidation {
         this.context = context;
     }
 
-    public void init(String email) {
+    public void init(String email, Sample sample) {
         if (email.trim().length() > 0) {
             if (email.contains("@")) {
                 String currentEmail = new CurrentUser().email();
 
                 if (!email.equals(currentEmail)) {
-                    findUser(email);
-
+                    findUser(email, sample);
                 } else {
                     callback.error("¿Cata contigo mismo?");
 
@@ -50,18 +50,17 @@ public class UserValidation {
 
     }
 
-    private void findUser(String email) {
+    private void findUser(final String email, final Sample sample) {
         new Nodes().user(new EmailProcessor().sanitizedEmail(email)).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Users otherUser = dataSnapshot.getValue(Users.class);
 
                 if (otherUser != null) {
+                    new Nodes().sharedSamples().child(new EmailProcessor().sanitizedEmail(email)).child(sample.getKey()).setValue(sample);
                     callback.success();
-
                 } else {
                     callback.notFound();
-
                 }
 
             }

@@ -1,5 +1,6 @@
 package com.skyweednet.weedlook.views.tastings;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import com.github.siyamed.shapeimageview.RoundedImageView;
 import com.skyweednet.weedlook.R;
 import com.skyweednet.weedlook.models.Sample;
+import com.skyweednet.weedlook.models.Tasting;
+import com.skyweednet.weedlook.views.mytastings.MyTastingsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -24,6 +27,10 @@ public class TastingsActivity extends AppCompatActivity {
     private EditText editText, manicureEt, maturityEt, curedEt, seedsEt, resinEt, pestsEt, exitnoteEt, heartnoteEt, backgroundnotesEt, drytastingEt, tastingincombustionEt, smokeEt, thcEt, cbdEt, insideEt, powerEt;
     private View line;
     private Button button;
+
+    public static final String SAMPLE = "com.skyweednet.weedlook.views.mytastings.KEY.SAMPLE";
+    public static final String TASTING = "com.skyweednet.weedlook.views.mytastings.KEY.SAMPLE";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,12 +124,23 @@ public class TastingsActivity extends AppCompatActivity {
                         editTexts.add(editText);
                     }
                 }
-                new UploadSample().byViews(editTexts, sample);
+                Tasting tasting = new UploadSample().byViews(editTexts, sample);
+                Intent intent = new Intent(TastingsActivity.this, MyTastingsActivity.class);
+                intent.putExtra(SAMPLE, sample);
+                intent.putExtra(TASTING, tasting);
+                startActivity(intent);
+                finish();
+
 
             }
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
 }

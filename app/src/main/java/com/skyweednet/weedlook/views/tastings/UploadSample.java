@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class UploadSample {
 
-    public void byViews(List<EditText> editTexts, Sample sample) {
+    public Tasting byViews(List<EditText> editTexts, Sample sample) {
 
         Tasting tasting = new Tasting();
         Map<String, Double> characteristics = new HashMap<>();
@@ -51,7 +51,9 @@ public class UploadSample {
 
 
 
-        new Nodes().tasting(email).child(sample.getKey()).child(key).setValue(tasting);
+        new Nodes().tasting(email).child(key).setValue(tasting);
+
+        return tasting;
 
         //TODO add missing attributes to the model and send it to the database
 

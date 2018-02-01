@@ -6,8 +6,10 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.github.siyamed.shapeimageview.RoundedImageView;
+import com.google.firebase.database.Query;
 import com.skyweednet.weedlook.R;
-import com.skyweednet.weedlook.data.Nodes;
+import com.skyweednet.weedlook.data.CurrentUser;
+import com.skyweednet.weedlook.data.EmailProcessor;
 import com.skyweednet.weedlook.models.Sample;
 import com.squareup.picasso.Picasso;
 
@@ -19,10 +21,11 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
 
     private SamplesListener listener;
     private boolean first = true;
+    private static final String USER_EMAIL = new EmailProcessor().sanitizedEmail(new CurrentUser().email());
 
 
-    public SamplesAdapter(SamplesListener listener, String email) {
-        super(Sample.class, R.layout.list_item_sample, SampleHolder.class, new Nodes().samplebyemail(email));
+    public SamplesAdapter(SamplesListener listener, Query ref) {
+        super(Sample.class, R.layout.list_item_sample, SampleHolder.class, ref);
         this.listener = listener;
     }
 
@@ -31,7 +34,8 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
 
         viewHolder.name.setText(model.getName());
         viewHolder.category.setText(model.getCategory());
-        viewHolder.flowering_time.setText(model.getFlowering_time());
+        viewHolder.flowering.setText(model.getFlowering());
+
 
         if (!model.getImage().isEmpty()) {
 
@@ -54,6 +58,8 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
                 listener.clickededit(auxSample);
             }
         });
+
+
         viewHolder.tasting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +68,9 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
 
             }
         });
-        viewHolder.shared.setOnClickListener(new View.OnClickListener() {
+
+        TextView shareBtn = viewHolder.shared;
+        shareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Sample auxSample = getItem(viewHolder.getAdapterPosition());
@@ -71,12 +79,12 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
             }
         });
 
-
-
-
-
-
-
+        //TODO do the same for the other UI elements
+        if (USER_EMAIL.equals(model.getOwner())) {
+            shareBtn.setVisibility(View.GONE);
+        } else {
+            shareBtn.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -94,7 +102,7 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
 
     public static class SampleHolder extends RecyclerView.ViewHolder {
 
-        private TextView name, category, flowering_time, deletesample, editsample,tasting,shared;
+        private TextView name, category, flowering, deletesample, editsample, tasting, shared;
         private RoundedImageView imageView;
 
         public SampleHolder(View itemView) {
@@ -102,7 +110,7 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
 
             name = (TextView) itemView.findViewById(R.id.nameTv);
             category = (TextView) itemView.findViewById(R.id.categoryTv);
-            flowering_time = (TextView) itemView.findViewById(R.id.floweringTv);
+            flowering = (TextView) itemView.findViewById(R.id.floweringTv);
             deletesample = (TextView) itemView.findViewById(R.id.deletesample);
             editsample = (TextView) itemView.findViewById(R.id.editsample);
             imageView = (RoundedImageView) itemView.findViewById(R.id.imageView);

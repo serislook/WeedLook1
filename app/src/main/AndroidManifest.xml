@@ -32,14 +32,17 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".views.add.AddSampleActivity"
-            android:label="Registrar Muestra"></activity>
+            android:label="Registrar Muestra" />
         <activity
             android:name=".views.main.EditSamplesActivity"
-            android:label="Editar Muestra"></activity>
+            android:label="Editar Muestra" />
         <activity
             android:name=".views.tastings.TastingsActivity"
             android:label="@string/title_activity_samples_tastings"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".views.mytastings.MyTastingsActivity"
+            android:label="Mis Catas">
+        </activity>
     </application>
 
 </manifest>

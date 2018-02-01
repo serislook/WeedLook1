@@ -40,8 +40,8 @@ public class TastingsAdapter extends FirebaseRecyclerAdapter<Tasting, TastingsAd
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Sample sample = dataSnapshot.getValue(Sample.class);
                 if (sample!=null){
-                    viewHolder.name.setText(sample.getName());
-                    viewHolder.flowering.setText(String.valueOf(sample.getFlowering()));
+                    viewHolder.name.setText("Nombre:  "+sample.getName());
+                    viewHolder.flowering.setText("Tiempo de Floración:  "+String.valueOf(sample.getFlowering()));
                     Picasso.with(viewHolder.itemView.getContext()).load(sample.getImage()).into(viewHolder.imageView);
 
                 }
@@ -54,7 +54,7 @@ public class TastingsAdapter extends FirebaseRecyclerAdapter<Tasting, TastingsAd
             }
         });
 
-        viewHolder.average.setText(String.valueOf(model.getAverage()));
+        viewHolder.average.setText("Nota Final:  "+String.valueOf(model.getAverage()));
 
 
         viewHolder.deletetasting.setOnClickListener(new View.OnClickListener() {

@@ -32,9 +32,9 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
     @Override
     protected void populateViewHolder(final SampleHolder viewHolder, Sample model, int position) {
 
-        viewHolder.name.setText(model.getName());
-        viewHolder.category.setText(model.getCategory());
-        viewHolder.flowering.setText(model.getFlowering());
+        viewHolder.name.setText("Nombre:  "+model.getName());
+        viewHolder.category.setText("Categoría:  "+model.getCategory());
+        viewHolder.flowering.setText("Tiempo de Floración:  "+model.getFlowering());
 
 
         if (!model.getImage().isEmpty()) {

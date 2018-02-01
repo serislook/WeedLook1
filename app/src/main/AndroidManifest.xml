@@ -38,11 +38,14 @@
             android:label="Editar Muestra" />
         <activity
             android:name=".views.tastings.TastingsActivity"
-            android:label="@string/title_activity_samples_tastings"
+            android:label="Evaluación"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".views.mytastings.MyTastingsActivity"
-            android:label="Mis Catas">
-        </activity>
+        <activity
+            android:name=".views.mytastings.MyTastingsActivity"
+            android:label="Mis Catas"/>
+        <activity android:name=".views.main.SharedSamplesActivity"
+            android:label="Muestras Compartidas"
+            />
     </application>
 
 </manifest>

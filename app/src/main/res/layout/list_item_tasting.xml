@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="8dp">
 
@@ -19,6 +20,7 @@
         app:siSquare="false"/>
 
     <TextView
+        android:padding="8dp"
         android:id="@+id/namesampleTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +30,7 @@
         android:textColor="@color/gray" />
 
     <TextView
+        android:padding="8dp"
         android:layout_below="@id/namesampleTv"
         android:id="@+id/averageTv"
         android:gravity="center_vertical"
@@ -38,6 +41,7 @@
         />
 
     <TextView
+        android:padding="8dp"
         android:layout_below="@id/averageTv"
         android:id="@+id/floweringtimeTv"
         android:gravity="center_vertical"
@@ -56,16 +60,18 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_marginRight="8dp"
-            android:padding="4dp"
             android:id="@+id/deletetastingTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:background="@color/delete"
             android:gravity="center"
+            android:padding="16dp"
             android:text="Eliminar"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
 

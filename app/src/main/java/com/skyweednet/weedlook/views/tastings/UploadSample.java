@@ -24,6 +24,7 @@ public class UploadSample {
         Map<String, Double> characteristics = new HashMap<>();
         final int size = editTexts.size();
         double average = 0;
+        double finalaverage = 0;
         for (EditText editText : editTexts) {
             String property = (String) editText.getTag();
             double value = 1;
@@ -39,8 +40,10 @@ public class UploadSample {
             average += value;
         }
         average = average/size;
+        finalaverage = Double.parseDouble(String.format("%.2f", average).replace(",","."));
         Log.e("Promedio",String.valueOf(average));
-        tasting.setAverage(average);
+        Log.e("Promedio-Final",String.valueOf(finalaverage));
+        tasting.setAverage(finalaverage);
         tasting.setCharacteristics(characteristics);
 
         String email = new EmailProcessor().sanitizedEmail(sample.getOwner());
@@ -54,8 +57,6 @@ public class UploadSample {
         new Nodes().tasting(email).child(key).setValue(tasting);
 
         return tasting;
-
-        //TODO add missing attributes to the model and send it to the database
 
     }
 }

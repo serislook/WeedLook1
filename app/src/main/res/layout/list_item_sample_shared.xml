@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark"
     android:padding="8dp">
 
     <com.github.siyamed.shapeimageview.RoundedImageView
@@ -57,50 +57,20 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_marginRight="8dp"
-            android:padding="4dp"
-            android:id="@+id/deletesample"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/delete"
-            android:gravity="center"
-            android:text="Eliminar"
-            android:textColor="@color/white" />
 
-        <TextView
-            android:padding="4dp"
-            android:id="@+id/editsample"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/edit"
-            android:gravity="center"
-            android:text="Editar"
-            android:textColor="@color/white" />
-        <TextView
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:padding="4dp"
             android:id="@+id/tastesample"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:background="@color/colorAccent"
             android:gravity="center"
+            android:padding="16dp"
+            android:textSize="20sp"
             android:text="Catar"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:padding="4dp"
-            android:id="@+id/sharesample"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:text="Compartir"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

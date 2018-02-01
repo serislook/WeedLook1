@@ -74,7 +74,8 @@
             android:padding="4dp"
             android:id="@+id/deletesample"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="@color/delete"
             android:gravity="center"
@@ -82,22 +83,24 @@
             android:textColor="@color/white" />
 
         <TextView
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
             android:padding="4dp"
             android:id="@+id/editsample"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/edit"
             android:gravity="center"
             android:text="Editar"
             android:textColor="@color/white" />
         <TextView
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:padding="4dp"
             android:id="@+id/tastesample"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorAccent"
             android:gravity="center"
@@ -105,10 +108,11 @@
             android:textColor="@color/white" />
 
         <TextView
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
             android:padding="4dp"
             android:id="@+id/sharesample"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:gravity="center"

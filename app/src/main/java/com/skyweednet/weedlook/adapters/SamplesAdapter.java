@@ -79,12 +79,12 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
             }
         });
 
-        //TODO do the same for the other UI elements
+        /*//TODO do the same for the other UI elements
         if (USER_EMAIL.equals(model.getOwner())) {
             shareBtn.setVisibility(View.GONE);
         } else {
             shareBtn.setVisibility(View.VISIBLE);
-        }
+        }*/
 
     }
 

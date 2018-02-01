@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.siyamed.shapeimageview.RoundedImageView;
 import com.skyweednet.weedlook.R;
@@ -126,11 +127,16 @@ public class TastingsActivity extends AppCompatActivity {
                 }
                 if (size>0){
                     Tasting tasting = new UploadSample().byViews(editTexts, sample);
-                    Intent intent = new Intent(TastingsActivity.this, MyTastingsActivity.class);
-                    intent.putExtra(SAMPLE, sample);
-                    intent.putExtra(TASTING, tasting);
-                    startActivity(intent);
-                    finish();
+                    if (tasting.getAverage()>7){
+                        Toast.makeText(TastingsActivity.this, "El promedio no debe exceder los 7 puntos", Toast.LENGTH_LONG).show();
+                    }else{
+                        Intent intent = new Intent(TastingsActivity.this, MyTastingsActivity.class);
+                        intent.putExtra(SAMPLE, sample);
+                        intent.putExtra(TASTING, tasting);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 }else{
                     finish();
                 }

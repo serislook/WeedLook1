@@ -106,7 +106,7 @@ public class TastingsActivity extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.calificationBtn);
 
-        Picasso.with(this).load(sample.getImage()).into(imageView);
+        Picasso.with(this).load(sample.getImage()).resize(800,600).into(imageView);
 
 
         button.setOnClickListener(new View.OnClickListener() {

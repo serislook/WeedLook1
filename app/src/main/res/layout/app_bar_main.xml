@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@mipmap/ic_cloud_circle_white_24dp" />
+        android:src="@drawable/ic_file_upload_white_48dp" />
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -102,7 +102,7 @@ public class AddSampleFragment extends Fragment {
 
                 final CurrentUser currentUser = new CurrentUser();
                 //TODO porqué más diagonal
-                String email = new EmailProcessor().sanitizedEmail(currentUser.email() + "/");
+                String email = new EmailProcessor().sanitizedEmail(currentUser.email());
 
                 if (!nameTx.isEmpty() && !categoryTx.isEmpty() && !floweringTx.isEmpty() && !pathurl.isEmpty()) {
 
@@ -176,7 +176,7 @@ public class AddSampleFragment extends Fragment {
     }
 
     private void setPhoto(String url) {
-        Picasso.with(getContext()).load(url).centerCrop().fit().into(imagesample);
+        Picasso.with(getContext()).load(url).centerCrop().fit().resize(800,600).into(imagesample);
     }
 
     public void toFirebasePathSample(String path) {

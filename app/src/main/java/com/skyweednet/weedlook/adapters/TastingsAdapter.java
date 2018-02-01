@@ -44,7 +44,7 @@ public class TastingsAdapter extends FirebaseRecyclerAdapter<Tasting, TastingsAd
                 if (sample!=null){
                     //viewHolder.name.setText("Nombre:  "+sample.getName());
                     viewHolder.flowering.setText("Tiempo de Floración:  "+String.valueOf(sample.getFlowering()));
-                    Picasso.with(viewHolder.itemView.getContext()).load(sample.getImage()).into(viewHolder.imageView);
+                    Picasso.with(viewHolder.itemView.getContext()).load(sample.getImage()).resize(800,600).into(viewHolder.imageView);
 
                 }
 

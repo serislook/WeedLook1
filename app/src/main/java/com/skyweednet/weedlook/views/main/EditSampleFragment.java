@@ -30,6 +30,6 @@ public class EditSampleFragment extends AddSampleFragment {
         flowering.setText(sample.getFlowering());
         pathurl = sample.getImage();
 
-        Picasso.with(imagesample.getContext()).load(sample.getImage()).into(imagesample);
+        Picasso.with(imagesample.getContext()).load(sample.getImage()).resize(800,600).into(imagesample);
     }
 }

@@ -39,7 +39,7 @@ public class SamplesAdapter extends FirebaseRecyclerAdapter<Sample, SamplesAdapt
 
         if (!model.getImage().isEmpty()) {
 
-            Picasso.with(viewHolder.itemView.getContext()).load(model.getImage()).into(viewHolder.imageView);
+            Picasso.with(viewHolder.itemView.getContext()).load(model.getImage()).resize(800,600).into(viewHolder.imageView);
         }
 
 

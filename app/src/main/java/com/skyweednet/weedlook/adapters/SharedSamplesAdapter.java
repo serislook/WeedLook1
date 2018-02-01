@@ -37,7 +37,7 @@ public class SharedSamplesAdapter extends FirebaseRecyclerAdapter<Sample, Shared
 
         if (!model.getImage().isEmpty()) {
 
-            Picasso.with(viewHolder.itemView.getContext()).load(model.getImage()).into(viewHolder.imageView);
+            Picasso.with(viewHolder.itemView.getContext()).load(model.getImage()).resize(800,600).into(viewHolder.imageView);
         }
 
         viewHolder.tasting.setOnClickListener(new View.OnClickListener() {

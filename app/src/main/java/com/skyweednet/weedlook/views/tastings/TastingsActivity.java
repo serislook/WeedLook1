@@ -124,12 +124,17 @@ public class TastingsActivity extends AppCompatActivity {
                         editTexts.add(editText);
                     }
                 }
-                Tasting tasting = new UploadSample().byViews(editTexts, sample);
-                Intent intent = new Intent(TastingsActivity.this, MyTastingsActivity.class);
-                intent.putExtra(SAMPLE, sample);
-                intent.putExtra(TASTING, tasting);
-                startActivity(intent);
-                finish();
+                if (size>0){
+                    Tasting tasting = new UploadSample().byViews(editTexts, sample);
+                    Intent intent = new Intent(TastingsActivity.this, MyTastingsActivity.class);
+                    intent.putExtra(SAMPLE, sample);
+                    intent.putExtra(TASTING, tasting);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    finish();
+                }
+
 
 
             }

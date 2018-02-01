@@ -31,6 +31,7 @@ public class UploadSample {
             //String valueS = editText.getText().toString();
             //value = (!valueS.equals("")) ? Double.parseDouble(valueS) : value;
             try {
+                if (!editText.getText().toString().isEmpty())
                 value = Double.parseDouble(editText.getText().toString());
             } catch (NumberFormatException e) {
                 e.printStackTrace();

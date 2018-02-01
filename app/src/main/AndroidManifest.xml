@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.skyweednet.weedlook">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -46,6 +47,10 @@
         <activity android:name=".views.main.SharedSamplesActivity"
             android:label="Muestras Compartidas"
             />
+        <meta-data
+            tools:node="replace"
+            android:name="io.fabric.ApiKey"
+            android:value="dfa7dc32a40be9d2190e27b7052164beca0e0658" />
     </application>
 
 </manifest>

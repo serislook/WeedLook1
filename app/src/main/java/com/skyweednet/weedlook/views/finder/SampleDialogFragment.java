@@ -65,12 +65,18 @@ public class SampleDialogFragment extends DialogFragment implements FinderCallba
                 setCancelable(false);
                 editText.setError(null);
                 String email = editText.getText().toString();
-                editText.setVisibility(View.GONE);
-                imageButton.setVisibility(View.GONE);
-                loading.setVisibility(View.VISIBLE);
-                Sample sample = (Sample) getArguments().getSerializable("sample");
-                Toast.makeText(getContext(), sample.getName(), Toast.LENGTH_SHORT).show();
-                new UserValidation(SampleDialogFragment.this, getContext()).init(email, sample);
+
+                if (!email.isEmpty()){
+                    editText.setVisibility(View.GONE);
+                    imageButton.setVisibility(View.GONE);
+                    loading.setVisibility(View.VISIBLE);
+                    Sample sample = (Sample) getArguments().getSerializable("sample");
+                    Toast.makeText(getContext(), "Muestra compartida con éxito", Toast.LENGTH_SHORT).show();
+                    new UserValidation(SampleDialogFragment.this, getContext()).init(email, sample);
+                }else{
+                    Toast.makeText(getContext(), "Debes escribir un email", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

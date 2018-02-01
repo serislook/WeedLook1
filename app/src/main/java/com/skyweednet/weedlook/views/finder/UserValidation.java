@@ -30,7 +30,7 @@ public class UserValidation {
             if (email.contains("@")) {
                 String currentEmail = new CurrentUser().email();
 
-                if (email.equals(currentEmail)) {
+                if (!email.equals(currentEmail)) {
                     findUser(email, sample);
                 } else {
                     callback.error("¿Cata contigo mismo?");

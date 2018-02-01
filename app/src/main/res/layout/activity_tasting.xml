@@ -6,11 +6,10 @@
     android:background="@color/colorPrimaryDark"
     android:fillViewport="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/fieldContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <com.github.siyamed.shapeimageview.RoundedImageView
             android:id="@+id/imageIv"
@@ -25,34 +24,42 @@
 
 
         <TextView
+            android:layout_below="@id/imageIv"
             android:id="@+id/presenceTv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:padding="8dp"
+            android:gravity="center"
             android:text="Presencia:"
             android:textColor="@color/colorAccent"
             android:textSize="30dp" />
 
         <TextView
+
             android:id="@+id/manicureTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_below="@id/presenceTv"
             android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
             android:padding="8dp"
-            android:paddingRight="24dp"
+            android:layout_marginStart="50dp"
             android:text="Manicurado:"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/presenceTv"
+            android:layout_marginEnd="50dp"
             android:tag="manicure"
             android:id="@+id/manicureEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="2dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -60,10 +67,13 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:gravity="center_vertical"
+            android:layout_below="@id/manicureTv"
             android:id="@+id/maturityTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="50dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Madurez:"
@@ -71,12 +81,15 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/manicureTv"
             android:tag="maturity"
             android:id="@+id/maturityEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -85,23 +98,30 @@
 
 
         <TextView
+
+            android:gravity="center_vertical"
             android:id="@+id/curedTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Curado:"
             android:textColor="@android:color/white"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:layout_below="@+id/maturityTv"
+            android:layout_alignStart="@+id/maturityTv" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/maturityTv"
             android:tag="cured"
             android:id="@+id/curedEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -109,23 +129,29 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/curedTv"
             android:id="@+id/seedsTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
+            android:gravity="center_vertical"
             android:paddingRight="24dp"
             android:text="Semillas:"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/curedTv"
             android:tag="seeds"
             android:id="@+id/seedsEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="16dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -133,23 +159,29 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:gravity="center_vertical"
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/seedsTv"
             android:id="@+id/resinTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:padding="8dp"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
             android:paddingRight="24dp"
             android:text="Resina:"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/seedsTv"
             android:tag="resin"
             android:id="@+id/resinEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -157,10 +189,13 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/resinTv"
             android:id="@+id/pestsTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Plagas:"
@@ -168,12 +203,15 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/resinTv"
             android:tag="pests"
             android:id="@+id/pestsEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -181,6 +219,7 @@
             android:textColor="@color/colorPrimary" />
 
         <View
+            android:layout_below="@id/pestsEt"
             android:id="@+id/line1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -189,34 +228,42 @@
 
 
         <TextView
+            android:layout_below="@id/line1"
             android:id="@+id/fraganceTv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:padding="8dp"
             android:text="Aroma:"
+            android:gravity="center"
             android:textColor="@color/colorAccent"
             android:textSize="30dp" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/fraganceTv"
             android:id="@+id/exitnoteTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
+            android:gravity="center_vertical"
             android:paddingRight="24dp"
             android:text="Notas de salida:"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/fraganceTv"
             android:tag="exitnote"
             android:id="@+id/exitnoteEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -224,34 +271,43 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/exitnoteTv"
             android:id="@+id/heartnoteTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
+            android:gravity="center_vertical"
             android:paddingRight="24dp"
             android:text="Notas de corazón:"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/exitnoteTv"
             android:tag="heartnote"
             android:id="@+id/heartnoteEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:maxLength="4"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
             android:padding="8dp"
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/heartnoteTv"
             android:id="@+id/backgroundnotesTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Notas de fondo:"
@@ -259,19 +315,23 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/heartnoteTv"
             android:tag="backgroundnotes"
             android:id="@+id/backgroundnotesEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:maxLength="4"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
             android:padding="8dp"
             android:textColor="@color/colorPrimary" />
 
         <View
+            android:layout_below="@id/backgroundnotesEt"
             android:id="@+id/line2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -280,9 +340,11 @@
 
 
         <TextView
+            android:layout_below="@id/line2"
             android:id="@+id/flavorTv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:padding="8dp"
@@ -291,10 +353,13 @@
             android:textSize="30dp" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/flavorTv"
             android:id="@+id/drytastingTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Seco:"
@@ -302,12 +367,15 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/flavorTv"
             android:tag="drytasting"
             android:id="@+id/drytastingEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -315,10 +383,13 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:gravity="center_vertical"
+            android:layout_below="@id/drytastingTv"
             android:id="@+id/tastingincombustionTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Combustión:"
@@ -326,23 +397,29 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/drytastingTv"
             android:tag="tastingincombustion"
             android:id="@+id/tastingincombustionEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:maxLength="4"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
             android:padding="8dp"
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/tastingincombustionTv"
             android:id="@+id/smokeTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Humo:"
@@ -350,12 +427,15 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/tastingincombustionTv"
             android:tag="smoke"
             android:id="@+id/smokeEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -363,10 +443,13 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/smokeTv"
             android:id="@+id/persistenceTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Persistencia:"
@@ -374,12 +457,15 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/smokeTv"
             android:tag="persistence"
             android:id="@+id/persistenceEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -387,6 +473,7 @@
             android:textColor="@color/colorPrimary" />
 
         <View
+            android:layout_below="@id/persistenceEt"
             android:id="@+id/line3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -394,8 +481,10 @@
             android:background="@color/colorPrimary" />
 
         <TextView
+            android:layout_below="@id/line3"
             android:id="@+id/efectTv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
@@ -405,10 +494,13 @@
             android:textSize="30dp" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/efectTv"
             android:id="@+id/thcTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="THC:"
@@ -416,12 +508,15 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/efectTv"
             android:tag="thc"
             android:id="@+id/thcEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -429,10 +524,13 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:layout_below="@id/thcTv"
             android:id="@+id/cbdTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="CBD:"
@@ -440,23 +538,29 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/thcTv"
             android:tag="cbd"
             android:id="@+id/cbdEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:maxLength="4"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
             android:padding="8dp"
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:gravity="center_vertical"
+            android:layout_below="@id/cbdTv"
             android:id="@+id/insideTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Inside:"
@@ -464,12 +568,15 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/cbdTv"
             android:tag="inside"
             android:id="@+id/insideEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:maxLength="4"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
@@ -477,10 +584,13 @@
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:layout_marginStart="50dp"
+            android:gravity="center_vertical"
+            android:layout_below="@id/insideTv"
             android:id="@+id/powerTv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:paddingRight="24dp"
             android:text="Potencia:"
@@ -488,12 +598,15 @@
             android:textSize="20dp" />
 
         <EditText
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@id/insideTv"
             android:tag="power"
             android:id="@+id/powerEt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="24dp"
             android:background="@android:color/black"
             android:inputType="numberDecimal"
             android:maxLength="4"
@@ -501,18 +614,18 @@
             android:textColor="@color/colorPrimary" />
 
         <Button
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_below="@id/powerTv"
             android:id="@+id/calificationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
             android:padding="8dp"
+            android:textSize="24sp"
             android:layout_marginTop="24dp"
-            android:paddingTop="16dp"
+            android:paddingTop="24dp"
             android:text="Calificar"
             android:textColor="@android:color/white"/>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>

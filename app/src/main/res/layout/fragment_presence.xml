@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skyweednet.weedlook.views.tasterguide.PresenceFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="En este item debes evaluar todos los campos basandote en la observación propiamente tal de cada muestra, una flor bien manicurada, siempre sera esteticamente mejor que una sin manicurar o mal manicurada. Se manicura por varios motivos, no solo esteticos, ya que durante el secado se reduce el exceso de humedad y se eliminan restos de clorofila. Sin duda es uno de los factores que mas puede hablar de un cultivador minucioso. Este punto ademas considera la producción de resina y la presencia de plagas o enteogenos contaminantes... "
+        android:textSize="18sp"/>
+
+</FrameLayout>

@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skyweednet.weedlook.views.tasterguide.EffectFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text=" No hay retorno el subidón ya debiese ser un hecho, aqui debes prestar atención en los efectos que logres percibir, mientras mas distraido mas estimulado estas por ende mas THC, si el descanzo es inminente mayor cantidad de CBD, estos factores dependen de la categoria en la que se este y la evaluación corresponde al mejor ejemplar en su composición base dentro de su categoria propiamente tal, inside es donde la muestra se apodera de la escena y te rige por completo permitiendote fluir en la perfecta sincronia de sus matices universales. Si ya ha pasado un tiempo despues de esto y aun el optimismo es absoluto entonces tenemos en frente un ejemplar digno de repetir... "
+        android:textSize="18sp"/>
+
+</FrameLayout>

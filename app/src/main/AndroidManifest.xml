@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_blur_on_white_48dp"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -43,14 +43,20 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".views.mytastings.MyTastingsActivity"
-            android:label="Mis Catas"/>
-        <activity android:name=".views.main.SharedSamplesActivity"
-            android:label="Muestras Compartidas"
-            />
+            android:label="Mis Catas" />
+        <activity
+            android:name=".views.main.SharedSamplesActivity"
+            android:label="Muestras Compartidas" />
+
         <meta-data
-            tools:node="replace"
             android:name="io.fabric.ApiKey"
-            android:value="dfa7dc32a40be9d2190e27b7052164beca0e0658" />
+            android:value="dfa7dc32a40be9d2190e27b7052164beca0e0658"
+            tools:node="replace" />
+
+        <activity
+            android:name=".views.tasterguide.TasterGuideActivity"
+            android:label="Guia Catador"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

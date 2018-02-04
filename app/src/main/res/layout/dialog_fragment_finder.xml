@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@color/colorPrimary"
-        android:hint="Busque por email"
+        android:hint="Comparte por email"
         android:inputType="textEmailAddress"
         android:padding="8dp"
         android:textColor="@android:color/white"

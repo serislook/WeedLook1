@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skyweednet.weedlook.views.tasterguide.FlavorFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="En este punto favorito de todos es donde debes agudizar tus papilas gustativas al maximo, una vez ya armado el cono sin encenderlo se saborea por primera vez para luego saborearlo una segunda vez pero ahora encendido, se utiliza el formato conico por que las primeras fumadas tendran mayor cantidad de humo que te permitira saborear mejor, terminas evacuando el humo por la boca y otro poco por la nariz para encontrar aquel que desaparezca en ti envolviendote en su sabor para recibirte al subidón. Busca matizar una linea base de sabores desde la cata en seco hasta la salida del humo y luego la persistencia al paladar, siendo dificil encontrar un sabor unico de la primera a la ultima fumada... "
+        android:textSize="18sp"/>
+
+
+</FrameLayout>

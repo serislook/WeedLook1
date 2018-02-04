@@ -23,4 +23,6 @@
     </array>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_samples_tastings">SamplesTastings</string>
+    <string name="title_activity_taster_guide">TasterGuideActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

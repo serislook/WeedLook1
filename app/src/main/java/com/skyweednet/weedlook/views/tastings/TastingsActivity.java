@@ -131,6 +131,7 @@ public class TastingsActivity extends AppCompatActivity {
                         Toast.makeText(TastingsActivity.this, "El promedio no debe exceder los 7 puntos", Toast.LENGTH_LONG).show();
                     }else{
                         Intent intent = new Intent(TastingsActivity.this, MyTastingsActivity.class);
+                        Toast.makeText(TastingsActivity.this, "Evaluación exitosa", Toast.LENGTH_LONG).show();
                         intent.putExtra(SAMPLE, sample);
                         intent.putExtra(TASTING, tasting);
                         startActivity(intent);

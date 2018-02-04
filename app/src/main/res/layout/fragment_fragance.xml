@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skyweednet.weedlook.views.tasterguide.FraganceFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Es aqui donde tu olfato debe ser como el de un elefante y encontrar dicho aroma que sea unico e imposible de olvidar. El analisis comienza al momento de abrir el recipiente que contiene la muestra, destacando aquellas que su aroma se apodera del lugar estas se convierten en las notas de salida para continuar con las notas de corazón al momento de disfrutar el apretón de la flor sobre tu nariz para detallar aun mas sus matices aromaticos estableciendo la linea base del aroma inicial suelen ser siempre mas intensos. finalizaremos con las notas de fondo una vez la flor sea triturada para su posterior degustación... "
+        android:padding="24dp"
+        android:textSize="18sp"/>
+
+</FrameLayout>

@@ -15,6 +15,7 @@ import com.github.siyamed.shapeimageview.RoundedImageView;
 import com.skyweednet.weedlook.R;
 import com.skyweednet.weedlook.models.Sample;
 import com.skyweednet.weedlook.models.Tasting;
+import com.skyweednet.weedlook.views.main.SharedSamplesActivity;
 import com.skyweednet.weedlook.views.mytastings.MyTastingsActivity;
 import com.squareup.picasso.Picasso;
 
@@ -40,6 +41,9 @@ public class TastingsActivity extends AppCompatActivity {
 
         final Sample sample = (Sample) getIntent().getSerializableExtra("SAMPLE_KEY");
         Log.e("SAMPLE", sample.getName());
+
+        final Boolean compartida = (Boolean) getIntent().getBooleanExtra("COMPARTIDA",false);
+
 
         imageView = (RoundedImageView) findViewById(R.id.imageIv);
 
@@ -130,12 +134,25 @@ public class TastingsActivity extends AppCompatActivity {
                     if (tasting.getAverage()>7){
                         Toast.makeText(TastingsActivity.this, "El promedio no debe exceder los 7 puntos", Toast.LENGTH_LONG).show();
                     }else{
-                        Intent intent = new Intent(TastingsActivity.this, MyTastingsActivity.class);
-                        Toast.makeText(TastingsActivity.this, "Evaluación exitosa", Toast.LENGTH_LONG).show();
-                        intent.putExtra(SAMPLE, sample);
-                        intent.putExtra(TASTING, tasting);
-                        startActivity(intent);
-                        finish();
+                        Intent intent;
+                        if (compartida){
+                            intent = new Intent(TastingsActivity.this, SharedSamplesActivity.class);
+                            Toast.makeText(TastingsActivity.this, "Evaluación exitosa", Toast.LENGTH_LONG).show();
+                            intent.putExtra(SAMPLE, sample);
+                            intent.putExtra(TASTING, tasting);
+                            startActivity(intent);
+                            finish();
+                        }else {
+                            intent = new Intent(TastingsActivity.this, MyTastingsActivity.class);
+                            Toast.makeText(TastingsActivity.this, "Evaluación exitosa", Toast.LENGTH_LONG).show();
+                            intent.putExtra(SAMPLE, sample);
+                            intent.putExtra(TASTING, tasting);
+                            startActivity(intent);
+                            finish();
+                        }
+
+
+
                     }
 
                 }else{

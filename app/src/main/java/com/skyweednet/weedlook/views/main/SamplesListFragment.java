@@ -138,7 +138,8 @@ public class SamplesListFragment extends Fragment implements SamplesListener {
     public void tasting(Sample sample) {
 
         Intent intent = new Intent(getActivity(), TastingsActivity.class);
-        intent.putExtra("SAMPLE_KEY", sample);  // pass your values and retrieve them in the other Activity using keyName
+        intent.putExtra("SAMPLE_KEY", sample);
+        intent.putExtra("COMPARTIDA",false);
         startActivity(intent);
 
     }

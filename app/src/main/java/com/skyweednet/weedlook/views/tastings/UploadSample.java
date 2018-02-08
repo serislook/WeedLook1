@@ -3,6 +3,7 @@ package com.skyweednet.weedlook.views.tastings;
 import android.util.Log;
 import android.widget.EditText;
 
+import com.skyweednet.weedlook.data.CurrentUser;
 import com.skyweednet.weedlook.data.EmailProcessor;
 import com.skyweednet.weedlook.data.Nodes;
 import com.skyweednet.weedlook.models.Sample;
@@ -47,15 +48,19 @@ public class UploadSample {
         tasting.setAverage(finalaverage);
         tasting.setCharacteristics(characteristics);
 
-        String email = new EmailProcessor().sanitizedEmail(sample.getOwner());
+        final CurrentUser currentUser = new CurrentUser();
+        String email = new EmailProcessor().sanitizedEmail(currentUser.email());
+
+        //String email = new EmailProcessor().sanitizedEmail(sample.getOwner());
+
+        tasting.setOwner(sample.getOwner());
 
         String key = new Nodes().tasting(email).push().getKey();
         tasting.setKey(key);
         tasting.setSampleKey(sample.getKey());
 
-
-
         new Nodes().tasting(email).child(key).setValue(tasting);
+        new Nodes().samplesharedbyemailbykey(email,sample.getKey()).removeValue();
 
         return tasting;
 

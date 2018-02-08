@@ -57,7 +57,7 @@ public class UserValidation {
                 Users otherUser = dataSnapshot.getValue(Users.class);
 
                 if (otherUser != null) {
-                    new Nodes().sharedSamples().child(new EmailProcessor().sanitizedEmail(email)).child(sample.getKey()).setValue(sample);
+                    new Nodes().sharedsamples().child(new EmailProcessor().sanitizedEmail(email)).child(sample.getKey()).setValue(sample);
                     callback.success();
                 } else {
                     callback.notFound();

@@ -45,7 +45,8 @@ public class SharedSamplesActivity extends AppCompatActivity implements SharedSa
     @Override
     public void tasting(Sample sample) {
         Intent intent = new Intent(this, TastingsActivity.class);
-        intent.putExtra("SAMPLE_KEY", sample);  // pass your values and retrieve them in the other Activity using keyName
+        intent.putExtra("SAMPLE_KEY", sample);
+        intent.putExtra("COMPARTIDA", true);
         startActivity(intent);
         finish();
     }

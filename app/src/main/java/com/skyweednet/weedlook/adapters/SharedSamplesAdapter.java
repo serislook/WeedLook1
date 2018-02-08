@@ -20,7 +20,6 @@ public class SharedSamplesAdapter extends FirebaseRecyclerAdapter<Sample, Shared
     private SharedSamplesListener listener;
     private boolean first = true;
 
-
     public SharedSamplesAdapter(SharedSamplesListener listener, String email) {
         super(Sample.class, R.layout.list_item_sample_shared, SampleHolder.class, new Nodes().sharedsamplebyemail(email));
         this.listener = listener;
@@ -29,7 +28,7 @@ public class SharedSamplesAdapter extends FirebaseRecyclerAdapter<Sample, Shared
     @Override
     protected void populateViewHolder(final SampleHolder viewHolder, Sample model, int position) {
 
-        //viewHolder.name.setText(model.getName());
+        viewHolder.name.setText(model.getName());
         viewHolder.name.setVisibility(View.GONE);
         viewHolder.category.setText("Categoría:  "+model.getCategory());
         viewHolder.flowering.setText("Tiempo de Floración:  "+model.getFlowering());

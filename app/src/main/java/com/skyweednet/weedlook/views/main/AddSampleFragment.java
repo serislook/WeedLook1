@@ -101,7 +101,6 @@ public class AddSampleFragment extends Fragment {
                 String floweringTx = flowering.getText().toString().trim();
 
                 final CurrentUser currentUser = new CurrentUser();
-                //TODO porqué más diagonal
                 String email = new EmailProcessor().sanitizedEmail(currentUser.email());
 
                 if (!nameTx.isEmpty() && !categoryTx.isEmpty() && !floweringTx.isEmpty() && !pathurl.isEmpty()) {

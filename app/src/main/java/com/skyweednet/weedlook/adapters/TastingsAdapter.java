@@ -37,7 +37,7 @@ public class TastingsAdapter extends FirebaseRecyclerAdapter<Tasting, TastingsAd
 
         viewHolder.name.setVisibility(View.GONE);
 
-        new Nodes().samplebyemailbykey(email,model.getSampleKey()).addListenerForSingleValueEvent(new ValueEventListener() {
+        new Nodes().samplebyemailbykey(model.getOwner(),model.getSampleKey()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Sample sample = dataSnapshot.getValue(Sample.class);
@@ -57,6 +57,12 @@ public class TastingsAdapter extends FirebaseRecyclerAdapter<Tasting, TastingsAd
         });
 
         viewHolder.average.setText("Nota Final:  "+String.valueOf(model.getAverage()));
+
+        if (model.getOwner().equals(email))
+            {viewHolder.deletetasting.setVisibility(View.VISIBLE);
+            }else{
+            viewHolder.deletetasting.setVisibility(View.GONE);
+        }
 
 
         viewHolder.deletetasting.setOnClickListener(new View.OnClickListener() {

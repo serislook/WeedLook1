@@ -90,6 +90,7 @@ public class TastingsListFragment extends Fragment implements TastingsListener {
                         String email = new EmailProcessor().sanitizedEmail(currentUser.email());
 
                         new Nodes().tasting(email).child(tasting.getKey()).removeValue();
+                        //new Nodes().scorebysamplekey(email,tasting.getSampleKey(),tasting.getScoreKey()).removeValue();
                     }
                 });
 

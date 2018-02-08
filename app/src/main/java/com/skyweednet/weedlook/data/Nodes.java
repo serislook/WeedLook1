@@ -2,6 +2,7 @@ package com.skyweednet.weedlook.data;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 /**
  * Created by osx on 22-11-17.
@@ -25,6 +26,10 @@ public class Nodes {
 
     public DatabaseReference sharedsamples() {
         return root.child("shared_samples");
+    }
+
+    public DatabaseReference scoresamples() {
+        return root.child("score_samples");
     }
 
     public DatabaseReference sample(String key) {
@@ -66,4 +71,15 @@ public class Nodes {
     public DatabaseReference sharedsamplebyemail(String email) {
         return samplesharedbyemail(email);
     }
+
+    public DatabaseReference scorebysamplekey(String keysample,String keyscore) {
+        return scoresamples().child(keyscore);
+    }
+
+    public DatabaseReference scorebysamplekeyfinalaverage(String keysample) {
+        return scoresamples().child(keysample);
+    }
+
+    public Query getscores(){ return scoresamples().orderByValue(); }
+
 }

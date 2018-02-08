@@ -7,6 +7,7 @@ import com.skyweednet.weedlook.data.CurrentUser;
 import com.skyweednet.weedlook.data.EmailProcessor;
 import com.skyweednet.weedlook.data.Nodes;
 import com.skyweednet.weedlook.models.Sample;
+import com.skyweednet.weedlook.models.Score;
 import com.skyweednet.weedlook.models.Tasting;
 
 import java.util.HashMap;
@@ -51,16 +52,32 @@ public class UploadSample {
         final CurrentUser currentUser = new CurrentUser();
         String email = new EmailProcessor().sanitizedEmail(currentUser.email());
 
-        //String email = new EmailProcessor().sanitizedEmail(sample.getOwner());
-
         tasting.setOwner(sample.getOwner());
 
         String key = new Nodes().tasting(email).push().getKey();
+        String scorekey = new Nodes().scorebysamplekey(sample.getKey(),key).push().getKey();
+
         tasting.setKey(key);
         tasting.setSampleKey(sample.getKey());
+        tasting.setScoreKey(scorekey);
 
         new Nodes().tasting(email).child(key).setValue(tasting);
         new Nodes().samplesharedbyemailbykey(email,sample.getKey()).removeValue();
+
+        if (!email.equals(tasting.getOwner())){
+            Score score = new Score();
+            score.setKey(scorekey);
+            score.setOwner(email);
+            score.setSamplekey(sample.getKey());
+            score.setAverage(finalaverage);
+            score.setSampleowner(sample.getOwner());
+
+            new Nodes().scorebysamplekey(sample.getKey(),scorekey).setValue(score);
+
+        }
+
+
+
 
         return tasting;
 

@@ -21,6 +21,7 @@ import com.skyweednet.weedlook.data.CurrentUser;
 import com.skyweednet.weedlook.views.login.LoginActivity;
 import com.skyweednet.weedlook.views.main.SharedSamplesActivity;
 import com.skyweednet.weedlook.views.mytastings.MyTastingsActivity;
+import com.skyweednet.weedlook.views.results.ResultsActivity;
 import com.skyweednet.weedlook.views.tasterguide.TasterGuideActivity;
 
 
@@ -52,6 +53,7 @@ public class DrawerFragment extends Fragment {
         Button mytastingsBtn = (Button) view.findViewById(R.id.mytastingsBtn);
         Button studiesBtn = (Button) view.findViewById(R.id.studiesBtn);
         Button guideBtn = (Button) view.findViewById(R.id.guideBtn);
+        Button resultsBtn = (Button) view.findViewById(R.id.resultsBtn);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +105,17 @@ public class DrawerFragment extends Fragment {
                 drawer.closeDrawers();
 
                 Intent intent = new Intent(getActivity(), TasterGuideActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        resultsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawer = (DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
+                drawer.closeDrawers();
+
+                Intent intent = new Intent(getActivity(), ResultsActivity.class);
                 startActivity(intent);
             }
         });

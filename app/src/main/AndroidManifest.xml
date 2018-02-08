@@ -56,6 +56,10 @@
         <activity
             android:name=".views.tasterguide.TasterGuideActivity"
             android:label="Guia Catador"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".views.results.ResultsActivity"
+            android:label="Resultados en línea"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

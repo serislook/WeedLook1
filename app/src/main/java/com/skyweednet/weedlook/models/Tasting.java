@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Tasting implements Serializable {
 
-    private String image,key, owner, name, flowering, sampleKey;
+    private String image,key, owner, name, flowering, sampleKey,scoreKey;
     private Map<String, Double> characteristics;
     private double average;
 
@@ -76,5 +76,13 @@ public class Tasting implements Serializable {
 
     public void setAverage(double average) {
         this.average = average;
+    }
+
+    public String getScoreKey() {
+        return scoreKey;
+    }
+
+    public void setScoreKey(String scoreKey) {
+        this.scoreKey = scoreKey;
     }
 }

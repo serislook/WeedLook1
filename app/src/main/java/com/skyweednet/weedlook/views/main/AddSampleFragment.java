@@ -49,6 +49,7 @@ public class AddSampleFragment extends Fragment {
     private int PHOTO_SIZE = 15;
 
 
+
     public AddSampleFragment() {
         // Required empty public constructor
     }

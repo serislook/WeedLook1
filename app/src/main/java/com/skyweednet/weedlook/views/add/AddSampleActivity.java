@@ -13,5 +13,6 @@ public class AddSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_sample);
 
 
+
     }
 }
